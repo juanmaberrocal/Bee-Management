@@ -89,7 +89,7 @@
             "Egg care",
             "Hive maintenance",
             "Honey manufacturing",
-            "Nectar control",
+            "Nectar collector",
             "Sting patrol"});
             this.workerBeeJob.Location = new System.Drawing.Point(9, 32);
             this.workerBeeJob.Name = "workerBeeJob";

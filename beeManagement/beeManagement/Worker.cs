@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace beeManagement
 {
-    class Worker
+    class Worker : Bee
     {
-        public Worker(string[] jobsICanDo)
+        public Worker(string[] jobsICanDo, double weightMg) 
+            : base(weightMg)
         {
             this.jobsICanDo = jobsICanDo;
         }
@@ -63,6 +64,14 @@ namespace beeManagement
             }
             else
                 return false;
+        }
+
+        const double honeyUnitsPerShiftWorked = 0.65;
+        public override double HoneyConsumptionRate()
+        {
+            double consumption = base.HoneyConsumptionRate();
+            consumption += shiftsWorked * honeyUnitsPerShiftWorked;
+            return consumption;
         }
     }
 }
