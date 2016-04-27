@@ -26,5 +26,22 @@ namespace beeManagement
                 "Egg care", "Baby bee tutoring", "Hive maintenance", "Sting patrol" });
             queen = new Queen(workers);
         }
+
+        private Queen queen;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (queen.AssignWork(workerBeeJob.Text, (int)shifts.Value) == false)
+                MessageBox.Show("No workers are available to do the job '" +
+                    workerBeeJob.Text + "'", "The queen be says...");
+            else
+                MessageBox.Show("The job '" + workerBeeJob.Text + "' will be done in " + 
+                    shifts.Value + " shifts", "The queen bee says...");
+        }
+
+        private void nextShiftButton_Click(object sender, EventArgs e)
+        {
+            report.Text = queen.WorkNextShift();
+        }
     }
 }
